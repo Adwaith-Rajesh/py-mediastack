@@ -1,4 +1,4 @@
-NEWS_URL = "http://api.mediastack.com/v1/news/"
+NEWS_URL = "http://api.mediastack.com/v1/news"
 
 CATEGORIES = [
     "general",

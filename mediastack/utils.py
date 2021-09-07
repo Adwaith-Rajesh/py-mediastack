@@ -1,8 +1,11 @@
 from typing import List
+from typing import Literal
+from typing import Optional
 
 from mediastack.const import CATEGORIES
 from mediastack.const import COUNTRIES
 from mediastack.const import LANGUAGES
+from mediastack.const import NEWS_URL
 from mediastack.const import SORT
 
 
@@ -87,4 +90,55 @@ def verify_live_news_args(
     return False
 
 
-def generate_request_url() -> str: ...
+def generate_news_request_url(
+    access_key: str,
+    sources: Optional[List[str]] = None,
+    categories:  Optional[List[str]] = None,
+    countries:  Optional[List[str]] = None,
+    languages:  Optional[List[str]] = None,
+    keywords: Optional[str] = None,
+    date:  Optional[str] = None,
+    sort: Literal["published_desc", "published_asc",
+                  "popularity"] = "published_desc",
+    limit: int = 25,
+    offset: int = 0
+) -> str:
+    url = NEWS_URL
+
+    # key
+    url += f"?access_key={access_key}"
+
+    # sources
+    if sources:
+        n_sourecs = ",".join(sources)
+        if n_sourecs:
+            url += f"&sources={n_sourecs}"
+
+    # categories
+    if categories:
+        n_cat = ",".join(categories)
+        if n_cat:
+            url += f"&categories={n_cat}"
+
+    # countries
+    if countries:
+        n_countries = ",".join(countries)
+        if n_countries:
+            url += f"&countries={n_countries}"
+
+    # languages
+    if languages:
+        n_lang = ",".join(languages)
+        if n_lang:
+            url += f"&languages={n_lang}"
+
+    # keywords
+    if keywords:
+        url += f"&keywords={keywords}"
+
+    # date
+    if date:
+        url += f"&date={date}"
+
+    url += f"&sort={sort}&limit={limit}&offset={offset}"
+    return url
