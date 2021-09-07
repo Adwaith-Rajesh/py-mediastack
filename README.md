@@ -9,11 +9,11 @@ An unofficial python helper package to interact with the mediastack API.
 
 Feel free to contribute. Make sure that you use the `pre-commit` hooks.
 
-## what can it do ?
+## What can it do ?
 
 It can give you live news updated.
 
-## installation
+## Installation
 
 ```commandline
 pip3 install py-mediastack
@@ -39,7 +39,6 @@ Pagination(limit=25, offset=0, count=25, total=10000)
 
 Article(author='Redazione', title='Via agli incontri di quartiere:
 primo appuntamento con i residenti di San Lorenzo',
-
 description='Hanno preso il via ieri sera, dalla sala Biasin dove l’Amministrazione ha convocato i residenti del quartiere San Lorenzo, gli ‘Incontri di quartiere’ con cui la Giunta si confronta con i cittadini. Presenti, oltre al Sindaco Gian Francesco Menani, il vicesindaco Camilla Nizzoli e gli assessori Corrado Ruini e Massimo Malagoli, che hanno ascoltato le [&#8230;]',
 url='https://www.bologna2000.com/2021/09/07/via-agli-incontri-di-quartiere-primo-appuntamento-con-i-residenti-di-san-lorenzo/',
 image=None,
@@ -52,10 +51,10 @@ language='it',
 
 ---
 
-The parameters for MediaStack.get_live_news are as follow:
+The parameters for `MediaStack.get_live_news` are as follow:
 
-- `access_key`: `str` -> Use this parameter to specify your unique API access key, which is shown when you log in to your account dashboard.
 - `sources`: `Optional[list[str]]` -> Use this parameter to include or exclude one or multiple news sources. Example: To include CNN, but exclude BBC: `sources=["cnn", "-bbc"]`
+
 - `categories`: `Optional[list[str]]` Use this parameter to include or exclude one or multiple news categories. Example: To include business, but exclude sports: `categories=["business", "-sports"]`.
 
 - `countries`: `Optional[list[str]]` -> Use this parameter to include or exclude one or multiple countries. Example: To include Australia, but exclude the US: `countries=["au", "-us"]`.
@@ -133,4 +132,4 @@ Click [Here](https://mediastack.com/sources) to see the list of all the supporte
 
 ---
 
-most the docs are directly taken from the [`mediastacks api docs`](https://mediastack.com/documentation)
+Most of the docs are directly taken from the [`mediastacks api docs`](https://mediastack.com/documentation)
